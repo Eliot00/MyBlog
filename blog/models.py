@@ -7,5 +7,8 @@ class Article(models.Model):
     body = models.TextField()                              # 博客正文
     timestamp = models.DateTimeField(auto_now_add=True)    # 创建时间
 
+    class Meta:
+        ordering = ['-timestamp']
+
     def __str__(self):
         return self.title

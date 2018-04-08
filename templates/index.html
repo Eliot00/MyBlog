@@ -6,16 +6,17 @@
     {% for post in post_list %}
       <section class="post">
         <header class="post-header">
-          <h2 class="post-title">{{ post.title }}</h2>
+          <h2 class="post-title"><a href="{% url 'detail' id=post.id %}">{{ post.title }}</a></h2>
 
           <p class="post-meta">
-            Time:  <a class="post-author" href="#">{{ post.timestamp|date:'M d, Y H:i' }}</a> <a class="post-category post-category-js" href="#">{{ post.category }}</a>
+            Time:  <a class="post-author" href="#">{{ post.timestamp|date:'M d, Y H:i' }}</a>&nbsp&nbsp <a class="post-category" href="#">{{ post.category }}</a>
           </p>
         </header>
 
         <div class="post-description">
           <p>
-            {{ post.body|linebreaks }}
+            <!-- 使首页只显示文章简略内容 -->
+            {{ post.body|slice:"100"|linebreaks }}
           </p>
         </div>
       </section>
