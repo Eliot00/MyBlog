@@ -16,7 +16,7 @@
         <div class="post-description">
           <p>
             <!-- 使首页只显示文章简略内容 -->
-            {{ post.body|slice:"100"|linebreaks }}
+            {{ post.body|slice:"100"|safe }}
           </p>
         </div>
       </section>
